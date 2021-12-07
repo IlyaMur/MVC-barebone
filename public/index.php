@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Front Controller
  * 
@@ -14,10 +16,14 @@ require '../Core/Router.php';
 
 $router = new Router();
 
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('posts', ['controller' => 'Posts', 'action' => 'index']);
-$router->add('posts/new', ['controller' => 'Posts', 'action' => 'new']);
+$router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
+$router->add(route: 'posts', params: ['controller' => 'Posts', 'action' => 'index']);
+$router->add(route: 'posts/new', params: ['controller' => 'Posts', 'action' => 'new']);
 
-echo '<pre>';
-var_dump($router->getRoutes());
-echo '</pre>';
+$url = $_SERVER['QUERY_STRING'];
+
+if ($router->match($url)) {
+    var_dump($router->getParams());
+} else {
+    echo 'No route found for URL ' . "$url";
+}
