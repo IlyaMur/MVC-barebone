@@ -22,8 +22,11 @@ class Router
         // convert route to regexp
         $route = preg_replace('/\//', '\\/', $route);
 
-        // convert variables
+        // convert variables: {controller}
         $route = preg_replace('/\{([a-z]+)\}/', '(?P<\1>[a-z-]+)', $route);
+
+        // Convert variables with custom regexp {id:\d+}
+        $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
 
         $route = '/^' . $route . '$/i';
 
@@ -34,7 +37,6 @@ class Router
     {
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
-                var_dump($matches);
                 foreach ($matches as $key => $match) {
                     if (is_string($key)) {
                         $params[$key] = $match;
@@ -47,5 +49,40 @@ class Router
             }
         }
         return false;
+    }
+
+    public function dispatch($url)
+    {
+        if (!$this->match($url)) {
+            exit('No route matched');
+        }
+
+        $controller = $this->params['controller'];
+        $controller = $this->convertToStudlyCaps($controller);
+
+        if (!class_exists($controller)) {
+            exit("Controller class $controller not found");
+        }
+
+        $controller_object = new $controller();
+
+        $action = $this->params['action'];
+        $action = $this->convertToCamelCase($action);
+
+        if (!is_callable([$controller_object, $action])) {
+            exit("Method $action (in controller $controller) not found");
+        }
+
+        $controller_object->$action();
+    }
+
+    protected function convertToCamelCase(string $string): string
+    {
+        return lcfirst($this->convertToStudlyCaps($string));
+    }
+
+    protected function convertToStudlyCaps(string $string): string
+    {
+        return str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
     }
 }

@@ -9,6 +9,7 @@ declare(strict_types=1);
  */
 
 require '../Core/Router.php';
+require '../App/Controllers/Posts.php';
 
 /**
  * Routing
@@ -17,19 +18,9 @@ require '../Core/Router.php';
 $router = new Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
-$router->add(route: 'posts', params: ['controller' => 'Posts', 'action' => 'index']);
-// $router->add(route: 'posts/new', params: ['controller' => 'Posts', 'action' => 'new']);
 
 $router->add(route: '{controller}/{action}');
-$router->add(route: 'admin/{controller}/{action}');
+$router->add(route: '{controller}/{id:\d+}/{action}');
 
-echo '<pre>';
-var_dump($router->getRoutes());
-echo '</pre>';
-$url = $_SERVER['QUERY_STRING'];
 
-if ($router->match($url)) {
-    var_dump($router->getParams());
-} else {
-    echo 'No route found for URL ' . "$url";
-}
+$router->dispatch($_SERVER['QUERY_STRING']);
