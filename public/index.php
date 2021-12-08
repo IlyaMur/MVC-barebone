@@ -8,8 +8,8 @@ declare(strict_types=1);
  * PHP version 8.0
  */
 
-require '../Core/Router.php';
-require '../App/Controllers/Posts.php';
+require '../src/Core/Router.php';
+require '../src/App/Controllers/Posts.php';
 
 /**
  * Routing

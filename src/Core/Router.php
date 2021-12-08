@@ -51,7 +51,7 @@ class Router
         return false;
     }
 
-    public function dispatch($url)
+    public function dispatch(string $url): void
     {
         if (!$this->match($url)) {
             exit('No route matched');
