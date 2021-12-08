@@ -8,14 +8,21 @@ declare(strict_types=1);
  * PHP version 8.0
  */
 
-require '../src/Core/Router.php';
-require '../src/App/Controllers/Posts.php';
+
+spl_autoload_register(function ($class) {
+    $root = dirname(__DIR__) . '/src';
+    $file = $root . '/' . str_replace('\\', '/', $class) . '.php';
+
+    if (is_readable($file)) {
+        require $file;
+    }
+});
 
 /**
  * Routing
  */
 
-$router = new Router();
+$router = new Core\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 
