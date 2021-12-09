@@ -7,6 +7,7 @@ declare(strict_types=1);
  * 
  * PHP version 8.0
  */
+
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 spl_autoload_register(function ($class) {
@@ -22,7 +23,7 @@ spl_autoload_register(function ($class) {
  * Routing
  */
 
-$router = new App\Core\Router();
+$router = new Core\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 $router->add(route: '{controller}/{action}');

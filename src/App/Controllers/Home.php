@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use \App\Core\View;
+use \Core\View;
 
-class Home extends \App\Core\Controller
+class Home extends \Core\Controller
 {
     public function indexAction()
     {
