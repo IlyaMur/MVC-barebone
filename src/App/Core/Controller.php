@@ -8,20 +8,18 @@ abstract class Controller
 {
     protected array $route_params = [];
 
-    public function __call(string $methodName, array $args): ?string
+    public function __call(string $methodName, array $args): void
     {
         $methodName = $methodName . 'Action';
 
         if (!method_exists($this, $methodName)) {
-            return "Method $methodName not found in controller" . get_class($this);
+            throw new \Exception("Method $methodName not found in controller" . get_class($this));
         }
 
         if ($this->before() !== false) {
             call_user_func_array([$this, $methodName], $args);
             $this->after();
         }
-
-        return null;
     }
 
     public function __construct(array $route_params)

@@ -63,7 +63,7 @@ class Router
 
         $controller = $this->params['controller'];
         $controller = $this->convertToStudlyCaps($controller);
-        $controller = "App\Controllers\\$controller";
+        $controller = $this->getNamespace() . $controller;
 
         if (!class_exists($controller)) {
             exit("Controller class $controller not found");
@@ -74,11 +74,11 @@ class Router
         $action = $this->params['action'];
         $action = $this->convertToCamelCase($action);
 
-        if (!is_callable([$controller_object, $action])) {
-            exit("Method $action (in controller $controller) not found");
+        if (preg_match('/action$/i', $action) == 0) {
+            $controller_object->$action();
+        } else {
+            throw new \Exception("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
         }
-
-        $controller_object->$action();
     }
 
     protected function convertToCamelCase(string $string): string
@@ -101,5 +101,16 @@ class Router
         $url = str_contains($parts[0], '=') ? '' : $parts[0];
 
         return $url;
+    }
+
+    public function getNamespace()
+    {
+        $namespace = 'App\Controllers\\';
+
+        if (array_key_exists('namespace', $this->params)) {
+            $namespace .= $this->params['namespace'] . '\\';
+        }
+
+        return $namespace;
     }
 }

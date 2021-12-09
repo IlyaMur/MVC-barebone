@@ -4,21 +4,23 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use \App\Core\View;
+
 class Home extends \App\Core\Controller
 {
     public function indexAction()
     {
-        echo 'Hi from Home index';
+        View::renderTemplate('Home/index.php', [
+            'name' => 'Ilya',
+            'colors' => ['red', 'green']
+        ]);
     }
 
     public function before()
     {
-        echo 'from before';
-        return false;
     }
 
     public function after()
     {
-        echo 'from after';
     }
 }
