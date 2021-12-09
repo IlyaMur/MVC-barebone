@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Controllers\Admin;
+namespace Ilyamur\PhpMvc\App\Controllers\Admin;
 
-class Users extends \App\Core\Controller
+class Users extends \Ilyamur\PhpMvc\Core\Controller
 {
     public function before(): void
     {
