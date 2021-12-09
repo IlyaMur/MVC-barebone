@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-class Posts
+class Posts extends \App\Core\Controller
 {
     public function index(): void
     {
@@ -17,5 +17,10 @@ class Posts
     public function addNew(): void
     {
         echo 'Hi from addNew action!';
+    }
+
+    public function edit(): void
+    {
+        echo htmlspecialchars(print_r($this->route_params, true));
     }
 }

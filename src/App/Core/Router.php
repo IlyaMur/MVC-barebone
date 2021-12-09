@@ -69,7 +69,7 @@ class Router
             exit("Controller class $controller not found");
         }
 
-        $controller_object = new $controller();
+        $controller_object = new $controller($this->params);
 
         $action = $this->params['action'];
         $action = $this->convertToCamelCase($action);
