@@ -6,7 +6,7 @@ namespace App\Controllers;
 
 class Posts extends \App\Core\Controller
 {
-    public function index(): void
+    public function indexAction(): void
     {
         echo 'Hi from index action!';
         echo '<pre>';
@@ -14,13 +14,23 @@ class Posts extends \App\Core\Controller
         echo '</pre>';
     }
 
-    public function addNew(): void
+    public function addNewAction(): void
     {
         echo 'Hi from addNew action!';
     }
 
-    public function edit(): void
+    public function editAction(): void
     {
         echo htmlspecialchars(print_r($this->route_params, true));
+    }
+
+    public function before(): void
+    {
+        echo 'from before';
+    }
+
+    public function after(): void
+    {
+        echo 'from after';
     }
 }
