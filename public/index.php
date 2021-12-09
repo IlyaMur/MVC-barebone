@@ -29,5 +29,6 @@ $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 $router->add(route: '{controller}/{action}');
 $router->add(route: '{controller}/{id:\d+}/{action}');
 
+var_dump(($_SERVER['QUERY_STRING']));
 
 $router->dispatch($_SERVER['QUERY_STRING']);

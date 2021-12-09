@@ -55,6 +55,8 @@ class Router
 
     public function dispatch(string $url): void
     {
+        $url = $this->removeQueryStringVariables($url);
+
         if (!$this->match($url)) {
             exit('No route matched');
         }
@@ -87,5 +89,17 @@ class Router
     protected function convertToStudlyCaps(string $string): string
     {
         return str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
+    }
+
+    protected function removeQueryStringVariables(string $url): string
+    {
+        if ($url === '') {
+            return $url;
+        }
+
+        $parts = explode('&', $url, 2);
+        $url = str_contains($parts[0], '=') ? '' : $parts[0];
+
+        return $url;
     }
 }
