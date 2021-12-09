@@ -22,7 +22,7 @@ spl_autoload_register(function ($class) {
  * Routing
  */
 
-$router = new Core\Router();
+$router = new App\Core\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 
