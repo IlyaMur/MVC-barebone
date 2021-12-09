@@ -66,7 +66,7 @@ class Router
         $controller = $this->getNamespace() . $controller;
 
         if (!class_exists($controller)) {
-            exit("Controller class $controller not found");
+            throw new \Exception("Controller class $controller not found");
         }
 
         $controller_object = new $controller($this->params);
@@ -103,7 +103,7 @@ class Router
         return $url;
     }
 
-    public function getNamespace()
+    public function getNamespace(): string
     {
         $namespace = 'Ilyamur\\PhpMvc\\App\Controllers\\';
 

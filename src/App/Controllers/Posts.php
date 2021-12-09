@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Ilyamur\PhpMvc\App\Controllers;
 
-use \Core\View;
+use \Ilyamur\PhpMvc\Core\View;
 
 class Posts extends \Ilyamur\PhpMvc\Core\Controller
 {
     public function indexAction(): void
     {
-        View::renderTemplate('Posts/index.html.twig');
+        View::renderTemplate('Posts/index');
     }
 
     public function addNewAction(): void
