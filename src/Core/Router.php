@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core;
+namespace Ilyamur\PhpMvc\Core;
 
 class Router
 {
@@ -105,7 +105,7 @@ class Router
 
     public function getNamespace()
     {
-        $namespace = 'App\Controllers\\';
+        $namespace = 'Ilyamur\\PhpMvc\\App\Controllers\\';
 
         if (array_key_exists('namespace', $this->params)) {
             $namespace .= $this->params['namespace'] . '\\';

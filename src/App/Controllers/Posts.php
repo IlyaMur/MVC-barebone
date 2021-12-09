@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Controllers;
+namespace Ilyamur\PhpMvc\App\Controllers;
 
-class Posts extends \Core\Controller
+use \Core\View;
+
+class Posts extends \Ilyamur\PhpMvc\Core\Controller
 {
     public function indexAction(): void
     {
-        echo 'Hi from index action!';
-        echo '<pre>';
-        echo htmlspecialchars(print_r($_GET, true));
-        echo '</pre>';
+        View::renderTemplate('Posts/index.html.twig');
     }
 
     public function addNewAction(): void
@@ -26,11 +25,9 @@ class Posts extends \Core\Controller
 
     public function before(): void
     {
-        echo 'from before';
     }
 
     public function after(): void
     {
-        echo 'from after';
     }
 }

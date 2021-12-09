@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Controllers;
+namespace Ilyamur\PhpMvc\App\Controllers;
 
-use \Core\View;
+use \Ilyamur\PhpMvc\Core\View;
 
-class Home extends \Core\Controller
+class Home extends \Ilyamur\PhpMvc\Core\Controller
 {
     public function indexAction()
     {
-        View::renderTemplate('Home/index.php', [
+        View::renderTemplate('Home/index.html.twig', [
             'name' => 'Ilya',
             'colors' => ['red', 'green']
         ]);

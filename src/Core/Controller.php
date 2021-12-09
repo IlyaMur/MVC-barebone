@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core;
+namespace Ilyamur\PhpMvc\Core;
 
 abstract class Controller
 {
