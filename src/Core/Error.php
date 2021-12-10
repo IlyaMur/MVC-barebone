@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ilyamur\PhpMvc\Core;
 
 use Ilyamur\PhpMvc\Config\Config;
+use Ilyamur\PhpMvc\Core\View;
 
 class Error
 {
@@ -17,6 +18,14 @@ class Error
 
     public static function exceptionHandler(\Throwable $exception)
     {
+        $code = $exception->getCode();
+
+        if ($code != 404) {
+            $code = 500;
+        }
+
+        http_response_code($code);
+
         if (Config::SHOW_ERRORS) {
             echo "<h1>Fatal error</h1>";
             echo "<p>Uncaught exception: '" . get_class($exception) . "'</p>";
@@ -37,7 +46,7 @@ class Error
 
             error_log($message);
 
-            echo '<h1>An error occured</h1>';
+            View::renderTemplate("$code");
         }
     }
 }

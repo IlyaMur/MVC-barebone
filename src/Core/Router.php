@@ -60,7 +60,7 @@ class Router
         $url = $this->removeQueryStringVariables($url);
 
         if (!$this->match($url)) {
-            throw new \Exception('No route matched');
+            throw new \Exception('No route matched', 404);
         }
 
         $controller = $this->params['controller'];

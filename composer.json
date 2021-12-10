@@ -1,6 +1,6 @@
 {
     "name": "ilyamur/php-mvc",
-    "description": "basic mvc barebone",
+    "description": "Basic MVC barebone",
     "autoload": {
         "psr-4": {
             "Ilyamur\\PhpMvc\\": "src/",

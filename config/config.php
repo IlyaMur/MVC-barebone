@@ -11,5 +11,5 @@ class Config
     const DB_USER = 'root';
     const DB_PASSWORD = '';
 
-    const SHOW_ERRORS = true;
+    const SHOW_ERRORS = false;
 }
