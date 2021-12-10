@@ -3,7 +3,8 @@
     "description": "basic mvc barebone",
     "autoload": {
         "psr-4": {
-            "Ilyamur\\PhpMvc\\": "src/"
+            "Ilyamur\\PhpMvc\\": "src/",
+            "Ilyamur\\PhpMvc\\config\\": "config/"
         }
     },
     "authors": [

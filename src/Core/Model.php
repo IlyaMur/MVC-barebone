@@ -3,6 +3,7 @@
 namespace Ilyamur\PhpMvc\Core;
 
 use PDO;
+use Ilyamur\PhpMvc\config\Config;
 
 abstract class Model
 {
@@ -11,10 +12,10 @@ abstract class Model
         static $db = null;
 
         if ($db === null) {
-            $host = 'localhost';
-            $dbname = 'mvc';
-            $username = '';
-            $password = '';
+            $host = Config::DB_HOST;
+            $dbname = Config::DB_NAME;
+            $username = Config::DB_USER;
+            $password = Config::DB_PASSWORD;
 
             try {
                 $db = new PDO(
