@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 namespace Ilyamur\PhpMvc\App\Controllers;
 
 use Ilyamur\PhpMvc\Core\View;
@@ -15,18 +16,18 @@ class Posts extends \Ilyamur\PhpMvc\Core\Controller
 
         View::renderTemplate(
             template: 'Posts/index',
-            args: ['posts' => $posts]
+            args: ['posts' => $posts],
         );
     }
 
     public function addNewAction(): void
     {
-        echo 'Hi from addNew action!';
+        $_SESSION['alert'][] = 'added';
+        header('location: /');
     }
 
     public function editAction(): void
     {
-        echo htmlspecialchars(print_r($this->route_params, true));
     }
 
     public function before(): void

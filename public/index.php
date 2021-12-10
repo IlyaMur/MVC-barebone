@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+session_start();
+
 /**
  * Front Controller
  * 
@@ -10,11 +12,14 @@ declare(strict_types=1);
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
+set_error_handler('Ilyamur\PhpMvc\Core\Error::errorHandler');
+set_exception_handler('Ilyamur\PhpMvc\Core\Error::exceptionHandler');
+
 /**
  * Routing
  */
 
-$router = new  Ilyamur\PhpMvc\Core\Router();
+$router = new Ilyamur\PhpMvc\Core\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 $router->add(route: '{controller}/{action}');

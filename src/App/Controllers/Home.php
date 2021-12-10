@@ -10,9 +10,13 @@ class Home extends \Ilyamur\PhpMvc\Core\Controller
 {
     public function indexAction()
     {
+        $alerts = $_SESSION['alert'] ?? [];
+        unset($_SESSION['alert']);
+
         View::renderTemplate('Home/index', [
             'name' => 'Ilya',
-            'colors' => ['red', 'green']
+            'colors' => ['red', 'green'],
+            'alerts' => $alerts
         ]);
     }
 

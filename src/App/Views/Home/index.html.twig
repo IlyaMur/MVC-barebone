@@ -7,6 +7,10 @@
     <h1>Welcome</h1>
     <p>Hello from Twig, {{ name }}</p>
 
+    {% for alert in alerts %}
+    {{ alert }}
+
+    {% endfor %}
     <ul>
         {% for color in colors %}
             <li>{{ color }}</li>

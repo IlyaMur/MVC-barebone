@@ -4,12 +4,17 @@
 
 {% block body %}
 
+    {% for alert in alerts %}
+    <h2>{{alert}}</h2>
+    {% endfor %} 
+
+
+
     <h1>Posts</h1>
-<ul>
-    {% for post in posts %}
-        <h2>  {{ post.title }} </h2>
-        <p> {{ post.content }} </p>
-    {% endfor %}
-</ul>
+<form action="addNew" method="post">
+
+<input name='name' type="text">
+<button>send</button>
+</form>
 
 {% endblock %}

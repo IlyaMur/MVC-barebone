@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ilyamur\PhpMvc\Core;
 
 use PDO;
@@ -17,15 +19,13 @@ abstract class Model
             $username = Config::DB_USER;
             $password = Config::DB_PASSWORD;
 
-            try {
-                $db = new PDO(
-                    "mysql:host=$host;dbname=$dbname;charset=utf8",
-                    $username,
-                    $password
-                );
-            } catch (\PDOException $e) {
-                echo $e->getMessage();
-            }
+            $db = new PDO(
+                "mysql:host=$host;dbname=$dbname;charset=utf8",
+                $username,
+                $password
+            );
+
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 
         return $db;

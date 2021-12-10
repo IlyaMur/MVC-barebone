@@ -8,16 +8,13 @@ class Users extends \Ilyamur\PhpMvc\Core\Controller
 {
     public function before(): void
     {
-        echo 'from before';
     }
 
     public function after(): void
     {
-        echo 'from after';
     }
 
     public function indexAction(): void
     {
-        echo 'hi from index';
     }
 }
