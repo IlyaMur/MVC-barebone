@@ -4,7 +4,7 @@
     "autoload": {
         "psr-4": {
             "Ilyamur\\PhpMvc\\": "src/",
-            "Ilyamur\\PhpMvc\\config\\": "config/"
+            "Ilyamur\\PhpMvc\\Config\\": "config/"
         }
     },
     "authors": [

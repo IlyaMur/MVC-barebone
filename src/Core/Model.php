@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Ilyamur\PhpMvc\Core;
 
 use PDO;
-use Ilyamur\PhpMvc\config\Config;
+use Ilyamur\PhpMvc\Config\Config;
 
 abstract class Model
 {
