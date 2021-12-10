@@ -14,11 +14,6 @@ class Router
         return $this->routes;
     }
 
-    public function getParams(): array
-    {
-        return $this->params;
-    }
-
     public function add(string $route, array $params = []): void
     {
         // convert route to regexp
@@ -34,6 +29,13 @@ class Router
 
         $this->routes[$route] = $params;
     }
+
+    public function getParams(): array
+    {
+        return $this->params;
+    }
+
+
 
     public function match(string $url): bool
     {
