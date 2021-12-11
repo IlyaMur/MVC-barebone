@@ -11,16 +11,12 @@ class Post extends \Ilyamur\PhpMvc\Core\Model
     public static function getAll()
     {
 
-        try {
-            $db = static::getDB();
+        $db = static::getDB();
 
-            $stmt = $db->query('SELECT id, title, content FROM posts
+        $stmt = $db->query('SELECT id, title, content FROM posts
                                 ORDER BY created_at');
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            return $results;
-        } catch (\Throwable $e) {
-            echo $e->getMessage();
-        }
+        return $results;
     }
 }

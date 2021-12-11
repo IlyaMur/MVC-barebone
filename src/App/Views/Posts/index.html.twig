@@ -1,20 +1,22 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Posts{% endblock %}
+{% block title %}
+	Posts
+{% endblock %}
 
 {% block body %}
+	<h1>Posts</h1>
 
-    {% for alert in alerts %}
-    <h2>{{alert}}</h2>
-    {% endfor %} 
+	{% for post in posts %}
+		<h1>{{ post.title }}</h1>
+		<p>{{ post.content }}</p>
+	{% endfor %}
 
 
+	<form action="addNew" method="post">
 
-    <h1>Posts</h1>
-<form action="addNew" method="post">
-
-<input name='name' type="text">
-<button>send</button>
-</form>
+		<input name='name' type="text">
+		<button>send</button>
+	</form>
 
 {% endblock %}

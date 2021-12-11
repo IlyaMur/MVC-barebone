@@ -6,10 +6,10 @@ namespace Ilyamur\PhpMvc\Config;
 
 class Config
 {
-    const DB_HOST = 'localhost';
-    const DB_NAME = 'mvc';
-    const DB_USER = 'root';
+    const DB_HOST = '';
+    const DB_NAME = '';
+    const DB_USER = '';
     const DB_PASSWORD = '';
 
-    const SHOW_ERRORS = false;
+    const SHOW_ERRORS = true;
 }

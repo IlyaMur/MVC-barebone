@@ -1,2 +1,0 @@
-[10-Dec-2021 22:37:24 Europe/Berlin] <h1>Fatal error</h1><p>Uncaught exception: 'Exception'</p><p>Message: 'No route matched'</p><p>Stack trace:<pre>#0 /Applications/XAMPP/xamppfiles/htdocs/php-mvc/public/index.php(31): Ilyamur\PhpMvc\Core\Router->dispatch('asd')
-#1 {main}</pre></p><p>Thrown in '/Applications/XAMPP/xamppfiles/htdocs/php-mvc/src/Core/Router.php' on line 63</p>
