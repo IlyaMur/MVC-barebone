@@ -11,8 +11,8 @@ class Home extends \Ilyamur\PhpMvc\Core\Controller
     public function indexAction()
     {
         View::renderTemplate('Home/index', [
-            'name' => 'Ilya',
-            'colors' => ['red', 'green'],
+            'name' => 'John Doe',
+            'colors' => ['red', 'green', 'blue'],
         ]);
     }
 

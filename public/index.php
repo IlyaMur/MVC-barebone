@@ -1,9 +1,7 @@
 <?php
 
-
 declare(strict_types=1);
 error_reporting(E_ALL);
-session_start();
 
 /**
  * Front Controller
@@ -24,7 +22,6 @@ $router = new Ilyamur\PhpMvc\Core\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 $router->add(route: '{controller}/{action}');
-$router->add(route: 'ru/{controller}/{action}');
 $router->add(route: '{controller}/{id:\d+}/{action}');
 $router->add(route: 'admin/{controller}/{action}', params: ['namespace' => 'Admin']);
 

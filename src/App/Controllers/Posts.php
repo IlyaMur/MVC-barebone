@@ -21,8 +21,6 @@ class Posts extends \Ilyamur\PhpMvc\Core\Controller
 
     public function addNewAction(): void
     {
-        $_SESSION['alert'][] = 'added';
-        header('location: /');
     }
 
     public function editAction(): void
