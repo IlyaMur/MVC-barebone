@@ -18,7 +18,7 @@ set_exception_handler('Ilyamur\PhpMvc\Core\Error::exceptionHandler');
  * Routing
  */
 
-$router = new Ilyamur\PhpMvc\Core\Router();
+$router = new Ilyamur\PhpMvc\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 $router->add(route: '{controller}/{action}');
