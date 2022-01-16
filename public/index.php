@@ -11,8 +11,8 @@ error_reporting(E_ALL);
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-set_error_handler('Ilyamur\PhpMvc\Core\Error::errorHandler');
-set_exception_handler('Ilyamur\PhpMvc\Core\Error::exceptionHandler');
+set_error_handler('Ilyamur\PhpMvc\Error::errorHandler');
+set_exception_handler('Ilyamur\PhpMvc\Error::exceptionHandler');
 
 /**
  * Routing

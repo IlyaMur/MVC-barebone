@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\Core;
+namespace Ilyamur\PhpMvc\Controllers;
 
-abstract class Controller
+abstract class BaseController
 {
     protected array $route_params = [];
 

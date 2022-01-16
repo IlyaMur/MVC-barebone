@@ -107,7 +107,7 @@ class Router
 
     public function getNamespace(): string
     {
-        $namespace = 'Ilyamur\\PhpMvc\\App\Controllers\\';
+        $namespace = 'Ilyamur\\PhpMvc\\Controllers\\';
 
         if (array_key_exists('namespace', $this->params)) {
             $namespace .= $this->params['namespace'] . '\\';

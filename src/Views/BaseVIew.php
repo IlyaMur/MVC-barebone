@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\Core;
+namespace Ilyamur\PhpMvc\Views;
 
-class View
+class BaseVIew
 {
     public static function renderTemplate(string $template, array $args = [])
     {
         static $twig = null;
 
         if ($twig === null) {
-            $loader = new \Twig\Loader\FilesystemLoader('../src/App/Views');
+            $loader = new \Twig\Loader\FilesystemLoader('../src/Views');
             $twig = new \Twig\Environment($loader);
         }
 

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\App\Models;
+namespace Ilyamur\PhpMvc\Models;
 
 use PDO;
 
-class Post extends \Ilyamur\PhpMvc\Core\Model
+class Post extends BaseModel
 {
     public static function getAll()
     {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\App\Controllers;
+namespace Ilyamur\PhpMvc\Controllers;
 
-use \Ilyamur\PhpMvc\Core\View;
+use \Ilyamur\PhpMvc\Views\BaseView;
 
-class Home extends \Ilyamur\PhpMvc\Core\Controller
+class Home extends \Ilyamur\PhpMvc\Controllers\BaseController
 {
     public function indexAction()
     {
-        View::renderTemplate('Home/index', [
+        BaseView::renderTemplate('Home/index', [
             'name' => 'John Doe',
             'colors' => ['red', 'green', 'blue'],
         ]);

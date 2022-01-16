@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\App\Controllers;
+namespace Ilyamur\PhpMvc\Controllers;
 
-use Ilyamur\PhpMvc\Core\View;
-use Ilyamur\PhpMvc\App\Models\Post;
+use Ilyamur\PhpMvc\Views\BaseView;
+use Ilyamur\PhpMvc\Models\Post;
 
-class Posts extends \Ilyamur\PhpMvc\Core\Controller
+class Posts extends \Ilyamur\PhpMvc\Controllers\BaseController
 {
     public function indexAction(): void
     {
         $posts = Post::getAll();
 
-        View::renderTemplate(
+        BaseView::renderTemplate(
             template: 'Posts/index',
             args: ['posts' => $posts],
         );

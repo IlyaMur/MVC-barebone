@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\Core;
+namespace Ilyamur\PhpMvc\Models;
 
 use PDO;
-use Ilyamur\PhpMvc\Config\Config;
 
-abstract class Model
+abstract class BaseModel
 {
     protected static function getDB()
     {

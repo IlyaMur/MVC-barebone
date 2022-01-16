@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\Core;
+namespace Ilyamur\PhpMvc;
 
-use Ilyamur\PhpMvc\Config\Config;
-use Ilyamur\PhpMvc\Core\View;
+use Ilyamur\PhpMvc\Core\BaseView;
 
 class Error
 {
@@ -46,7 +45,7 @@ class Error
 
             error_log($message);
 
-            View::renderTemplate("$code");
+            BaseView::renderTemplate("$code");
         }
     }
 }
