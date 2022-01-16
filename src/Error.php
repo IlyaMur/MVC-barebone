@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc;
+namespace Ilyamur\PhpOnRails;
 
-use Ilyamur\PhpMvc\Core\BaseView;
+use Ilyamur\PhpOnRails\Core\BaseView;
 
 class Error
 {

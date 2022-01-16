@@ -11,14 +11,14 @@ error_reporting(E_ALL);
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-set_error_handler('Ilyamur\PhpMvc\Error::errorHandler');
-set_exception_handler('Ilyamur\PhpMvc\Error::exceptionHandler');
+set_error_handler('Ilyamur\PhpOnRails\Error::errorHandler');
+set_exception_handler('Ilyamur\PhpOnRails\Error::exceptionHandler');
 
 /**
  * Routing
  */
 
-$router = new Ilyamur\PhpMvc\Router();
+$router = new Ilyamur\PhpOnRails\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 $router->add(route: '{controller}/{action}');

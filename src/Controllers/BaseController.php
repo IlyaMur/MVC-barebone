@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\Controllers;
+namespace Ilyamur\PhpOnRails\Controllers;
 
 abstract class BaseController
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\Controllers;
+namespace Ilyamur\PhpOnRails\Controllers;
 
-use \Ilyamur\PhpMvc\Views\BaseView;
+use \Ilyamur\PhpOnRails\Views\BaseView;
 
-class Home extends \Ilyamur\PhpMvc\Controllers\BaseController
+class Home extends \Ilyamur\PhpOnRails\Controllers\BaseController
 {
     public function indexAction()
     {

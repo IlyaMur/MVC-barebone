@@ -1,9 +1,9 @@
 {
-    "name": "ilyamur/php-mvc",
+    "name": "ilyamur/php-on-rails",
     "description": "Basic MVC barebone - 'PHP on Rails'",
     "autoload": {
         "psr-4": {
-            "Ilyamur\\PhpMvc\\": "src/"
+            "Ilyamur\\PhpOnRails\\": "src/"
         },
         "files": [
             "config/config.php"

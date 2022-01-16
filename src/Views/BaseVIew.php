@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\Views;
+namespace Ilyamur\PhpOnRails\Views;
 
 class BaseVIew
 {

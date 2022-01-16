@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpMvc\Models;
+namespace Ilyamur\PhpOnRails\Models;
 
 use PDO;
 
