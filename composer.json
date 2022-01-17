@@ -9,6 +9,11 @@
             "config/config.php"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Ilyamur\\PhpOnRails\\Tests\\": "tests/"
+        }
+    },
     "authors": [{
         "name": "Ilya Muratov",
         "email": "ilyamur@hotmail.com"

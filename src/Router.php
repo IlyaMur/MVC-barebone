@@ -70,13 +70,13 @@ class Router
             throw new \Exception("Controller class $controller not found");
         }
 
-        $controller_object = new $controller($this->params);
+        $controllerObject = new $controller($this->params);
 
         $action = $this->params['action'];
         $action = $this->convertToCamelCase($action);
 
         if (preg_match('/action$/i', $action) == 0) {
-            $controller_object->$action();
+            $controllerObject->$action();
         } else {
             throw new \Exception("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
         }
@@ -99,9 +99,7 @@ class Router
         }
 
         $parts = explode('&', $url, 2);
-        $url = str_contains($parts[0], '=') ? '' : $parts[0];
-
-        return $url;
+        return str_contains($parts[0], '=') ? '' : $parts[0];
     }
 
     public function getNamespace(): string

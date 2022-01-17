@@ -13,7 +13,7 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 
 // showing errors info
-define('SHOW_ERRORS', false);
+define('SHOW_ERRORS', true);
 
 // logs directory
 define('LOG_DIR', __DIR__ . '/../logs/' . date('Y-m-d') . '.txt');

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ilyamur\PhpOnRails\Views;
 
-class BaseVIew
+class BaseView
 {
     public static function renderTemplate(string $template, array $args = [])
     {
