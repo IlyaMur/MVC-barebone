@@ -123,8 +123,7 @@ class RouterTest extends TestCase
 
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(
-            "Method indexAction in controller Ilyamur\PhpOnRails\Controllers\Home can't be 
-            called directly - remove the Action suffix to call this method"
+            "indexAction in controller Ilyamur\PhpOnRails\Controllers\Home can't be called - remove the Action suffix"
         );
 
         $this->router->dispatch('home/indexAction');

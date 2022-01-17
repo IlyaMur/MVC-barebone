@@ -78,8 +78,7 @@ class Router
         if (preg_match('/action$/i', $action) == 0) {
             $controllerObject->$action();
         } else {
-            throw new \Exception("Method $action in controller $controller 
-            can't be called directly - remove the Action suffix to call this method");
+            throw new \Exception("$action in controller $controller can't be called - remove the Action suffix");
         }
     }
 
