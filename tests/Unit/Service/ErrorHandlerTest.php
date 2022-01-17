@@ -25,10 +25,10 @@ class ErrorHandlerTest extends TestCase
         $testException = file_get_contents(dirname(__DIR__) . "/__fixtures__/exception.txt");
 
         ob_start();
-        ErrorHandler::exceptionHandler(new \Exception('test', 7));
+        ErrorHandler::exceptionHandler(new \Exception('testExceptionMessage'));
         $exceptionRender = ob_get_contents();
         ob_end_clean();
 
-        $this->assertEquals($testException, $exceptionRender);
+        $this->assertStringContainsString($testException, $exceptionRender);
     }
 }

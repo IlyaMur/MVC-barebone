@@ -1,7 +1,1 @@
-<h1>Fatal error</h1><p>Uncaught exception: 'Exception'</p><p>Message: 'test'</p><p>Stack trace:<pre>#0 /Applications/XAMPP/xamppfiles/htdocs/php-mvc/vendor/phpunit/phpunit/src/Framework/TestCase.php(1545): Ilyamur\PhpOnRails\Tests\Unit\Service\ErrorHandlerTest->testPrintOutExceptionMessageIfShowErrorsIsTrue()
-#1 /Applications/XAMPP/xamppfiles/htdocs/php-mvc/vendor/phpunit/phpunit/src/Framework/TestCase.php(1151): PHPUnit\Framework\TestCase->runTest()
-#2 /Applications/XAMPP/xamppfiles/htdocs/php-mvc/vendor/phpunit/phpunit/src/Framework/TestResult.php(726): PHPUnit\Framework\TestCase->runBare()
-#3 /Applications/XAMPP/xamppfiles/htdocs/php-mvc/vendor/phpunit/phpunit/src/Framework/TestCase.php(903): PHPUnit\Framework\TestResult->run(Object(Ilyamur\PhpOnRails\Tests\Unit\Service\ErrorHandlerTest))
-#4 Standard input code(427): PHPUnit\Framework\TestCase->run(Object(PHPUnit\Framework\TestResult))
-#5 Standard input code(598): __phpunit_run_isolated_test()
-#6 {main}</pre></p><p>Thrown in '/Applications/XAMPP/xamppfiles/htdocs/php-mvc/tests/Unit/Service/ErrorHandlerTest.php' on line 28</p>
+<h1>Fatal error</h1><p>Uncaught exception: 'Exception'</p><p>Message: 'testExceptionMessage'</p><p>Stack trace:<pre>#0

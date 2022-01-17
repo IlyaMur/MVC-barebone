@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Ilyamur\PhpOnRails\Tests\Service;
 
-use Ilyamur\PhpOnRails\{Service\Router, Tests\Unit\Service\TestDoubles\RouterChild};
+use Ilyamur\PhpOnRails\Service\Router;
+use Ilyamur\PhpOnRails\Tests\Unit\Service\TestDoubles\RouterChild;
 use PHPUnit\Framework\TestCase;
 
 class RouterTest extends TestCase
@@ -19,9 +20,13 @@ class RouterTest extends TestCase
         $routerMock = $this->getMockBuilder(Router::class)
             ->onlyMethods(['getNamespace'])
             ->getMock();
-        $routerMock->method('getNamespace')->willReturn('Ilyamur\PhpOnRails\Tests\Unit\Controllers\TestDoubles\\');
+        $routerMock->method('getNamespace')
+            ->willReturn('Ilyamur\PhpOnRails\Tests\Unit\Controllers\TestDoubles\\');
 
-        $routerMock->add('basecontrollerchild/testmethod', ['controller' => 'basecontrollerchild', 'action' => 'testMethod']);
+        $routerMock->add(
+            'basecontrollerchild/testmethod',
+            ['controller' => 'basecontrollerchild', 'action' => 'testMethod']
+        );
 
         $routerMock->dispatch('basecontrollerchild/testmethod');
 
@@ -111,14 +116,15 @@ class RouterTest extends TestCase
 
     public function testThrowAnExceptionWhenQueryStringHasActionCall()
     {
-        // when URL has mysite.com/controller/someAction 
+        // when URL has mysite.com/controller/someAction
         // instead of mysite.com/controller/some
 
         $this->router->add('{controller}/{action}');
 
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(
-            "Method indexAction in controller Ilyamur\PhpOnRails\Controllers\Home can't be called directly - remove the Action suffix to call this method"
+            "Method indexAction in controller Ilyamur\PhpOnRails\Controllers\Home can't be 
+            called directly - remove the Action suffix to call this method"
         );
 
         $this->router->dispatch('home/indexAction');
@@ -152,13 +158,16 @@ class RouterTest extends TestCase
                 '{controller}/{action}', [], ['/^(?P<controller>[a-z-]+)\/(?P<action>[a-z-]+)$/i' => []]
             ],
             'Correctly parse with empty route' => [
-                '', ['controller' => 'Home', 'action' => 'index'], ['/^$/i' => ['controller' => 'Home', 'action' => 'index']]
+                '', ['controller' => 'Home', 'action' => 'index'], ['/^$/i' =>
+                ['controller' => 'Home', 'action' => 'index']]
             ],
             'Correctly parse with :id' => [
-                '{controller}/{id:\d+}/{action}', [], ['/^(?P<controller>[a-z-]+)\/(?P<id>\d+)\/(?P<action>[a-z-]+)$/i' => []]
+                '{controller}/{id:\d+}/{action}', [],
+                ['/^(?P<controller>[a-z-]+)\/(?P<id>\d+)\/(?P<action>[a-z-]+)$/i' => []]
             ],
             'Correctly parse with namespace' => [
-                'admin/{controller}/{action}', ['namespace' => 'Admin'], ['/^admin\/(?P<controller>[a-z-]+)\/(?P<action>[a-z-]+)$/i' => ['namespace' => 'Admin']]
+                'admin/{controller}/{action}', ['namespace' => 'Admin'],
+                ['/^admin\/(?P<controller>[a-z-]+)\/(?P<action>[a-z-]+)$/i' => ['namespace' => 'Admin']]
             ]
         ];
     }

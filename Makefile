@@ -7,3 +7,5 @@ test-coverage:
 test-coverage-html:
 	composer exec --verbose phpunit tests --  --coverage-html build/logs/html-coverage
 	
+lint:
+	composer exec phpcs -- --standard=PSR12 src tests
