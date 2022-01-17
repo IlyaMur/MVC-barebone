@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Ilyamur\PhpOnRails\Controllers;
 
-use \Ilyamur\PhpOnRails\Views\BaseView;
+use Ilyamur\PhpOnRails\Views\BaseView;
 
-class Home extends \Ilyamur\PhpOnRails\Controllers\BaseController
+class Home extends BaseController
 {
     public function indexAction()
     {

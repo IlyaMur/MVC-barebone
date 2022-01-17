@@ -7,19 +7,24 @@ use PHPUnit\Framework\TestCase;
 
 class RouterTest extends TestCase
 {
+
     public function setUp(): void
     {
         $this->router = new Router();
     }
 
-    public function testRoutesAreEmptyInDefaultState(): void
+    public function testCorrectlyDispatchToTheController()
     {
-        $this->assertEmpty($this->router->getRoutes());
-    }
+        $routerMock = $this->getMockBuilder(Router::class)
+            ->onlyMethods(['getNamespace'])
+            ->getMock();
+        $routerMock->method('getNamespace')->willReturn('Ilyamur\PhpOnRails\Tests\Fixtures\\');
 
-    public function testParamsAreEmptyInDefaultState(): void
-    {
-        $this->assertEmpty($this->router->getParams());
+        $routerMock->add('testcontroller/test', ['controller' => 'testcontroller', 'action' => 'test']);
+
+        $routerMock->dispatch('testcontroller/test');
+
+        $this->expectOutputString('testAction');
     }
 
     /**
@@ -31,13 +36,22 @@ class RouterTest extends TestCase
         $this->assertEquals($parsedRoute, $this->router->getRoutes());
     }
 
-    public function testCorrectlyRemoveQueryStringVars()
+    public function testCorrectlyReturnNamespaceWhenExists()
     {
-        $routerChild = new RouterChild();
+        $this->router->add(route: 'admin/{controller}/{action}', params: ['namespace' => 'Admin']);
+        $this->router->match('admin/foo/bar');
 
-        $url = $routerChild->removeQueryStringVariables('http://test.test/home/index/bar?foo=123&foobar=456');
+        $namespaceWithAdmin = $this->router->getNamespace();
+        $this->assertEquals('Ilyamur\\PhpOnRails\\Controllers\\Admin\\', $namespaceWithAdmin);
+    }
 
-        $this->assertEmpty($url);
+    public function testCorrectlyReturnNamespaceWhenNoneExists()
+    {
+        $this->router->add(route: 'admin/{controller}/{action}');
+        $this->router->match('admin/foo/bar');
+
+        $namespaceWithAdmin = $this->router->getNamespace();
+        $this->assertEquals('Ilyamur\\PhpOnRails\\Controllers\\', $namespaceWithAdmin);
     }
 
     public function testCorrectlyConvertToCamelcase()
@@ -65,11 +79,67 @@ class RouterTest extends TestCase
     /**
      * @dataProvider matchesProvider
      */
-    public function testMatchOnUrl(string $route, string $url, bool $isMatch, array $params = [])
+    public function testMatchOnUrl(string $route, string $string, bool $isMatch, array $params = [])
     {
         $this->router->add($route, $params);
 
-        $this->assertSame($isMatch, $this->router->match($url));
+        $this->assertSame($isMatch, $this->router->match($string));
+    }
+
+    public function testThrowAnExceptionWhenDoesNotHaveMatchesInDispatch()
+    {
+        $this->router->add('admin/{controller}/{action}');
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('No route matched');
+
+        $this->router->dispatch('foo/bar');
+    }
+
+    public function testThrowAnExceptionWhenClassNotFoundInDispatch()
+    {
+        $this->router->add('{controller}/{action}');
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("Controller class Ilyamur\PhpOnRails\Controllers\Bazbar not found");
+
+        $this->router->dispatch('bazbar/foo');
+    }
+
+    public function testThrowAnExceptionWhenURLHasDirectlyActionCall()
+    {
+        // when URL has mysite.com/controller/someAction 
+        // instead of mysite.com/controller/some
+
+        $this->router->add('{controller}/{action}');
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(
+            "Method indexAction in controller Ilyamur\PhpOnRails\Controllers\Home can't be called directly - remove the Action suffix to call this method"
+        );
+
+        $this->router->dispatch('home/indexAction');
+    }
+
+    public function testRoutesAreEmptyInDefaultState(): void
+    {
+        $this->assertEmpty($this->router->getRoutes());
+    }
+
+    public function testParamsAreEmptyInDefaultState(): void
+    {
+        $this->assertEmpty($this->router->getParams());
+    }
+
+    public function testCorrectlyRemoveQueryStringVars()
+    {
+        $routerChild = new RouterChild();
+
+        $url1 = $routerChild->removeQueryStringVariables('posts/index&page=1');
+        $url2 = $routerChild->removeQueryStringVariables('page=1');
+
+        $this->assertEquals('posts/index', $url1);
+        $this->assertEmpty($url2);
     }
 
     public function routesProvider()
