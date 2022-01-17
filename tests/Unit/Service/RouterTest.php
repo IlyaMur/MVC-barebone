@@ -25,7 +25,7 @@ class RouterTest extends TestCase
 
         $routerMock->add(
             'basecontrollerchild/testmethod',
-            ['controller' => 'basecontrollerchild', 'action' => 'testMethod']
+            ['controller' => 'BaseControllerChild', 'action' => 'testMethod']
         );
 
         $routerMock->dispatch('basecontrollerchild/testmethod');
