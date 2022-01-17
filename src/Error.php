@@ -33,10 +33,7 @@ class Error
             echo "<p>Thrown in '" . $exception->getFile() . "' on line " .
                 $exception->getLine() . "</p>";
         } else {
-            ini_set(
-                'error_log',
-                LOG_DIR
-            );
+            ini_set('error_log', LOG_DIR);
 
             $message = "<h1>Fatal error</h1>";
             $message .= "<p>Uncaught exception: '" . get_class($exception) . "'</p>";

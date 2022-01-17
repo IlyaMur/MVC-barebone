@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Configuration file
  */
-
-declare(strict_types=1);
 
 // db credentials
 define('DB_HOST', 'localhost');
@@ -12,8 +12,8 @@ define('DB_NAME', 'mvc');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 
-// showing additional errors info
-const SHOW_ERRORS = false;
+// showing errors info
+define('SHOW_ERRORS', false);
 
 // logs directory
 define('LOG_DIR', __DIR__ . '/../logs/' . date('Y-m-d') . '.txt');
