@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ilyamur\PhpOnRails;
 
-use Ilyamur\PhpOnRails\Core\BaseView;
+use Ilyamur\PhpOnRails\Views\BaseView;
 
 class Error
 {
@@ -33,8 +33,10 @@ class Error
             echo "<p>Thrown in '" . $exception->getFile() . "' on line " .
                 $exception->getLine() . "</p>";
         } else {
-            $log = dirname(__DIR__) . '/../logs/' . date('Y-m-d') . '.txt';
-            ini_set('error_log', $log);
+            ini_set(
+                'error_log',
+                LOG_DIR
+            );
 
             $message = "<h1>Fatal error</h1>";
             $message .= "<p>Uncaught exception: '" . get_class($exception) . "'</p>";

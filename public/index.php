@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-error_reporting(E_ALL);
 
 /**
  * Front Controller
@@ -11,9 +10,6 @@ error_reporting(E_ALL);
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-set_error_handler('Ilyamur\PhpOnRails\Error::errorHandler');
-set_exception_handler('Ilyamur\PhpOnRails\Error::exceptionHandler');
-
 /**
  * Routing
  */
@@ -21,7 +17,7 @@ set_exception_handler('Ilyamur\PhpOnRails\Error::exceptionHandler');
 $router = new Ilyamur\PhpOnRails\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
-$router->add(route: '{controller}/{action}');
+$router->add(roue: '{controller}/{action}');
 $router->add(route: '{controller}/{id:\d+}/{action}');
 $router->add(route: 'admin/{controller}/{action}', params: ['namespace' => 'Admin']);
 
