@@ -20,5 +20,5 @@ define('LOG_DIR', __DIR__ . '/../logs/' . date('Y-m-d') . '.txt');
 
 // errors handlers settings
 error_reporting(E_ALL);
-set_error_handler('Ilyamur\PhpOnRails\Service\Error::errorHandler');
-set_exception_handler('Ilyamur\PhpOnRails\Service\Error::exceptionHandler');
+set_error_handler('Ilyamur\PhpOnRails\Service\ErrorHandler::errorHandler');
+set_exception_handler('Ilyamur\PhpOnRails\Service\ErrorHandler::exceptionHandler');

@@ -16,9 +16,13 @@ class BaseViewTest extends TestCase
     public function testCorrectlyRendersTemplate(string $templateName): void
     {
         $testTemplate = file_get_contents(dirname(__DIR__) . "/__fixtures__/$templateName.txt");
-        BaseView::renderTemplate($templateName);
 
-        $this->expectOutputString($testTemplate);
+        ob_start();
+        BaseView::renderTemplate($templateName);
+        $viewRender = ob_get_contents();
+        ob_end_clean();
+
+        $this->assertEquals($testTemplate, $viewRender);
     }
 
     public function templatesProvider()

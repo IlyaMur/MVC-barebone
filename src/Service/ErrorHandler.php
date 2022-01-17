@@ -6,7 +6,7 @@ namespace Ilyamur\PhpOnRails\Service;
 
 use Ilyamur\PhpOnRails\Views\BaseView;
 
-class Error
+class ErrorHandler
 {
     public static function errorHandler(int $level, string $message, string $file, int $line)
     {

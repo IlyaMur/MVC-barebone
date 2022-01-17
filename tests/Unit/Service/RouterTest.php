@@ -109,7 +109,7 @@ class RouterTest extends TestCase
         $this->router->dispatch('bazbar/foo');
     }
 
-    public function testThrowAnExceptionWhenQueryStringHasDirectlyActionCall()
+    public function testThrowAnExceptionWhenQueryStringHasActionCall()
     {
         // when URL has mysite.com/controller/someAction 
         // instead of mysite.com/controller/some
