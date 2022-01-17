@@ -8,6 +8,11 @@ abstract class BaseController
 {
     protected array $routeParams = [];
 
+    public function __construct(array $routeParams)
+    {
+        $this->routeParams = $routeParams;
+    }
+
     public function __call(string $methodName, array $args): void
     {
         $methodName = $methodName . 'Action';
@@ -20,10 +25,5 @@ abstract class BaseController
             call_user_func_array([$this, $methodName], $args);
             $this->after();
         }
-    }
-
-    public function __construct(array $routeParams)
-    {
-        $this->routeParams = $routeParams;
     }
 }

@@ -14,7 +14,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
  * Routing
  */
 
-$router = new Ilyamur\PhpOnRails\Router();
+$router = new Ilyamur\PhpOnRails\Service\Router();
 
 $router->add(route: '', params: ['controller' => 'Home', 'action' => 'index']);
 $router->add(route: '{controller}/{action}');

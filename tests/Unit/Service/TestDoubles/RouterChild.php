@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpOnRails\Tests\TestDoubles;
+namespace Ilyamur\PhpOnRails\Tests\Unit\Service\TestDoubles;
 
-use Ilyamur\PhpOnRails\Router;
+use Ilyamur\PhpOnRails\Service\Router;
 
 class RouterChild extends Router
 {

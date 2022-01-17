@@ -11,7 +11,7 @@ class BaseView
         static $twig = null;
 
         if ($twig === null) {
-            $loader = new \Twig\Loader\FilesystemLoader('../src/Views');
+            $loader = new \Twig\Loader\FilesystemLoader(__DIR__);
             $twig = new \Twig\Environment($loader);
         }
 

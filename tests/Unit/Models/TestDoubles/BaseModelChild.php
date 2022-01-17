@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpOnRails\Tests\TestDoubles;
+namespace Ilyamur\PhpOnRails\Tests\Unit\Models\TestDoubles;
 
 use Ilyamur\PhpOnRails\Models\BaseModel;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpOnRails\Tests;
+namespace Ilyamur\PhpOnRails\Tests\Service;
 
-use Ilyamur\PhpOnRails\{Router, Tests\TestDoubles\RouterChild};
+use Ilyamur\PhpOnRails\{Service\Router, Tests\Unit\Service\TestDoubles\RouterChild};
 use PHPUnit\Framework\TestCase;
 
 class RouterTest extends TestCase
@@ -19,18 +19,19 @@ class RouterTest extends TestCase
         $routerMock = $this->getMockBuilder(Router::class)
             ->onlyMethods(['getNamespace'])
             ->getMock();
-        $routerMock->method('getNamespace')->willReturn('Ilyamur\PhpOnRails\Tests\Fixtures\\');
+        $routerMock->method('getNamespace')->willReturn('Ilyamur\PhpOnRails\Tests\Unit\Controllers\TestDoubles\\');
 
-        $routerMock->add('testcontroller/test', ['controller' => 'testcontroller', 'action' => 'test']);
+        $routerMock->add('basecontrollerchild/testmethod', ['controller' => 'basecontrollerchild', 'action' => 'testMethod']);
 
-        $routerMock->dispatch('testcontroller/test');
+        $routerMock->dispatch('basecontrollerchild/testmethod');
 
-        $this->expectOutputString('testAction');
+        $this->expectOutputString('testMethod called');
     }
 
     /**
      * @dataProvider routesProvider
      */
+
     public function testRoutesAddCorrectly(string $route, array $params, array $parsedRoute): void
     {
         $this->router->add($route, $params);
@@ -80,6 +81,7 @@ class RouterTest extends TestCase
     /**
      * @dataProvider matchesProvider
      */
+
     public function testMatchOnUrl(string $route, string $string, bool $isMatch, array $params = [])
     {
         $this->router->add($route, $params);
@@ -107,7 +109,7 @@ class RouterTest extends TestCase
         $this->router->dispatch('bazbar/foo');
     }
 
-    public function testThrowAnExceptionWhenURLHasDirectlyActionCall()
+    public function testThrowAnExceptionWhenQueryStringHasDirectlyActionCall()
     {
         // when URL has mysite.com/controller/someAction 
         // instead of mysite.com/controller/some

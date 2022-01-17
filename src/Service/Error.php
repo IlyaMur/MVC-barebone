@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ilyamur\PhpOnRails;
+namespace Ilyamur\PhpOnRails\Service;
 
 use Ilyamur\PhpOnRails\Views\BaseView;
 
