@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit verbose="true" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" testdox="true" stopOnError="true" stopOnFailure="true">
+<phpunit verbose="true" colors="true" convertErrorsToExceptions="true" processIsolation="true" beStrictAboutChangesToGlobalState="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" testdox="true" backupGlobals="false" stopOnError="true" stopOnFailure="true">
     <testsuite name="Test suite">
         <directory>tests</directory>
     </testsuite>

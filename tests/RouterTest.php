@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ilyamur\PhpOnRails\Tests;
 
 use Ilyamur\PhpOnRails\{Router, Tests\TestDoubles\RouterChild};
@@ -7,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class RouterTest extends TestCase
 {
-
     public function setUp(): void
     {
         $this->router = new Router();
