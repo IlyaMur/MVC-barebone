@@ -18,7 +18,7 @@ abstract class BaseModel
      *
      * @return PDO
      */
-    protected static function getDB(): PDO
+    protected static function getDB()
     {
         static $db = null;
 
