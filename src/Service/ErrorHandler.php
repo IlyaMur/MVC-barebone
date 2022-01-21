@@ -39,8 +39,8 @@ class ErrorHandler
      */
     public static function exceptionHandler(\Throwable $exception)
     {
+        // Selection code. 404 (not found) or 500 (general error)
         $code = $exception->getCode();
-
         if ($code != 404) {
             $code = 500;
         }
