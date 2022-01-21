@@ -14,9 +14,9 @@ class BaseControllerTest extends TestCase
         $this->controller = new BaseControllerChild([]);
 
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage("Method NotExistAction not found in controller" . $this->controller::class);
+        $this->expectExceptionMessage("Method notExistAction not found in controller" . $this->controller::class);
 
-        $this->controller->NotExist();
+        $this->controller->notExist();
     }
 
     public function testCallCorrectMethodWhenItExists(): void
