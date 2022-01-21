@@ -6,9 +6,19 @@ namespace Ilyamur\PhpOnRails\Models;
 
 use PDO;
 
+/**
+ * Base model
+ *
+ * PHP version 8.0
+ */
 abstract class BaseModel
 {
-    protected static function getDB()
+    /**
+     * Get the PDO database connection
+     *
+     * @return PDO
+     */
+    protected static function getDB(): PDO
     {
         static $db = null;
 
@@ -24,6 +34,7 @@ abstract class BaseModel
                 $password
             );
 
+            // Throw an Exception when an error occur
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 

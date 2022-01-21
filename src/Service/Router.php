@@ -340,6 +340,12 @@ class Router
         return str_contains($parts[0], '=') ? '' : $parts[0];
     }
 
+    /**
+     * Get the namespace for the controller class. The namespace defined in the
+     * route parameters is added.
+     *
+     * @return string The request URL
+     */
     public function getNamespace(): string
     {
         $namespace = 'Ilyamur\\PhpOnRails\\Controllers\\';

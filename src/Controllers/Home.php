@@ -15,7 +15,7 @@ use Ilyamur\PhpOnRails\Views\BaseView;
 class Home extends BaseController
 {
     /**
-     * Index action - render demo template
+     * Show the index page
      *
      * @return void
      */
