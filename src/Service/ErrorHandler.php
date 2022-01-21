@@ -6,8 +6,23 @@ namespace Ilyamur\PhpOnRails\Service;
 
 use Ilyamur\PhpOnRails\Views\BaseView;
 
+/**
+ * Error and exception handler
+ *
+ * PHP version 8.0
+ */
 class ErrorHandler
 {
+    /**
+     * Error handler. Convert all errors to Exceptions by throwing an ErrorException.
+     *
+     * @param int $level  Error level
+     * @param string $message  Error message
+     * @param string $file  Filename the error was raised in
+     * @param int $line  Line number in the file
+     *
+     * @return void
+     */
     public static function errorHandler(int $level, string $message, string $file, int $line)
     {
         if (error_reporting() !== 0) {
@@ -15,6 +30,13 @@ class ErrorHandler
         }
     }
 
+    /**
+     * Exception handler.
+     *
+     * @param Exception $exception  The exception
+     *
+     * @return void
+     */
     public static function exceptionHandler(\Throwable $exception)
     {
         $code = $exception->getCode();
