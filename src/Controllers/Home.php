@@ -8,8 +8,8 @@ use Ilyamur\PhpOnRails\Views\BaseView;
 
 /**
  * Home controller
- * Description: Demo Controller for smoke testing the framerwork 
- * 
+ * Description: Demo Controller for smoke testing the framerwork
+ *
  * PHP version 8.0
  */
 class Home extends BaseController
