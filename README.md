@@ -176,9 +176,16 @@ $db = static::getDB();
 
 ### Ошибки
 
-При `SHOW_ERRORS` (настраивается в `config/config.php`) установленном на `true`, в случае исключения или ошибки в браузер будет выведена полная детализация.  
-Если `SHOW_ERRORS` установлен на  `false` будет показано лишь общее сообщение из шаблонов [src/Views/404.html.twig](src/Views/404.html.twig) или [src/Views/500.html.twig](src/Views/500.html.twig) в зависимости от ошибки.  
+Ошибки преобразуются в исключения. Обработчиками обозначены:
+```
+set_error_handler('Ilyamur\PhpMvc\Service\ErrorHandler::errorHandler');
+set_exception_handler('Ilyamur\PhpMvc\Service\ErrorHandler::exceptionHandler');
+```
+
+При константе `SHOW_ERRORS` (настраивается в [config.php](config/config.php)) равной `true`, в случае исключения или ошибки в браузер будет выведена полная детализация.   
+Если `SHOW_ERRORS` присвоено значение `false` будет показано лишь общее сообщение из шаблонов [404.html.twig](src/Views/404.html.twig) или [500.html.twig](src/Views/500.html.twig) в зависимости от ошибки.  
 Детализированная информация в данном случае будет логироваться в директории `logs/`.
+
 
 ## Направления для дальнейшего развития
 
