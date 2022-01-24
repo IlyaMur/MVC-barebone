@@ -30,7 +30,7 @@ The framework was written for educational purposes but has advanced routing opti
 The main goal was to write a framework entirely based on the Model-View-Controller design pattern from scratch.  
 Despite the fact that this is a training project, PHP On Rails is fully functional and you can build projects on it.
 
-The blog application with rich functionality was written in Php On Rails - [myPosts](https://github.com/IlyaMur/myposts_app).
+The blog application with rich functionality was written in PHP On Rails - [myPosts](https://github.com/IlyaMur/myposts_app).
 
 ## Install
 
