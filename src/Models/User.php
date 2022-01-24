@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ilyamur\PhpOnRails\Models;
 
 use PDO;
@@ -9,9 +11,8 @@ use PDO;
  *
  * PHP version 8.0
  */
-class User extends Model
+class User extends BaseModel
 {
-
     /**
      * Get all the users as an associative array
      *
@@ -23,3 +24,4 @@ class User extends Model
         $stmt = $db->query('SELECT id, name FROM users');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+}
