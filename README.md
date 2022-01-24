@@ -1,4 +1,4 @@
-# PHP On Rails фреймворк
+# PHP On Rails
 
 ![CodeSniffer-PSR-12](https://github.com/IlyaMur/php_on_rails_mvc/workflows/CodeSniffer-PSR-12/badge.svg)
 ![PHPUnit-Tests](https://github.com/IlyaMur/php_on_rails_mvc/workflows/PHPUnit-Tests/badge.svg)
@@ -185,4 +185,4 @@ $db = static::getDB();
 Не смотря на то, что фреймворк протестирован и находится в полностью работоспособном состоянии, очевидны места для дальнейшего улучшения.  
 Видимый на данный момент To-Do List:
 - Переработка в сторону DI класса `BaseModel`. Доступные на данный момент модели тестируются не лучшим образом.
-- Альтернатива методу __call в классе `BaseController`. Данное возможное улучшение позволит коду стать более прозрачным.
+- Альтернатива методу `__call` в классе `BaseController`. Данное возможное улучшение позволит коду стать более прозрачным.

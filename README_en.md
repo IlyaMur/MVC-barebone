@@ -1,4 +1,4 @@
-# PHP On Rails framework
+# PHP On Rails
 
 ![CodeSniffer-PSR-12](https://github.com/IlyaMur/php_on_rails_mvc/workflows/CodeSniffer-PSR-12/badge.svg)
 ![PHPUnit-Tests](https://github.com/IlyaMur/php_on_rails_mvc/workflows/PHPUnit-Tests/badge.svg)
@@ -23,15 +23,17 @@
     - [Errors](#errors)
 
 ## Overview
-PHP On Rails is a simple MVC framework for building web applications in PHP.   
+
+PHP On Rails is a basic MVC framework for building web applications in PHP.   
 The framework was written for educational purposes but has advanced routing options.
 
 The main goal was to write a framework entirely based on the Model-View-Controller design pattern from scratch.  
 Despite the fact that this is a training project, PHP On Rails is fully functional and you can build projects on it.
 
-The blog application was written in Php On Rails - [myPosts](https://github.com/IlyaMur/myposts_app).
+The blog application with rich functionality was written in Php On Rails - [myPosts](https://github.com/IlyaMur/myposts_app).
 
 ## Install
+
 - PHP version >= 8.0 (framework is using named arguments and other modern php features).
 - `$ git clone` the repo.
 - `$ make install` to install dependencies.
@@ -41,6 +43,7 @@ The blog application was written in Php On Rails - [myPosts](https://github.com/
 Pretty URLs are enabled using web server rewrite rules. An [.htaccess](public/.htaccess) file is included in the `public` folder.
 
 ### Used libraries
+
 I tried to avoid using existing libraries and do everything myself.  
 PHP On Rails has only one dependency:
 -  Twig Template Engine.
@@ -48,6 +51,7 @@ PHP On Rails has only one dependency:
 ## How To Use
 
 ### Configuration
+
 Configuration settings are stored in the `config/config.php` file.  
 Default settings include database connection data, error loggin and a setting to show or hide error detail.  
 You can access the settings in your code by using constants defined in the configuration file.
@@ -94,6 +98,7 @@ Controllers respond to user actions (clicking on a link, submitting a form etc.)
 Controllers are stored in the `src/Controllers` folder. A sample [Home controller](src/Controllers/Home.php) included. Controller classes need to be in the `Ilyamur\PhpOnRails\Controllers` namespace. You can add subdirectories to organise your controllers, so when adding a route for these controllers you need to specify the namespace (see the routing section above).
 
 #### Actions
+
 Controller classes contain methods that are the actions. To create an action, add the **`Action`** suffix to the method name. The sample controller in [src/Controllers/Home.php](src/Controllers/Home.php) has a sample `index` action.
 
 #### Route parameters
