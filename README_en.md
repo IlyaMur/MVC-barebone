@@ -5,7 +5,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/673249eff3f090fe3f06/maintainability)](https://codeclimate.com/github/IlyaMur/php_on_rails_mvc/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/673249eff3f090fe3f06/test_coverage)](https://codeclimate.com/github/IlyaMur/php_on_rails_mvc/test_coverage)
 
-**[🇷🇺 Russian readme](https://github.com/IlyaMur/php_on_rails_mvc/blob/master/README_ru.md)**
+**[🇷🇺 Russian readme](https://github.com/IlyaMur/php_on_rails_mvc/blob/master/README.md)**
 
 **Table of contents**
   - [Overview](#overview)
