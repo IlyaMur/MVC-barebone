@@ -34,7 +34,7 @@ The blog application with rich functionality was written in PHP On Rails - [myPo
 
 ## Install
 
-- PHP version >= 8.0 (framework is using named arguments and other modern php features).
+- PHP version >= 8.0 (framework is using named arguments and other modern PHP features).
 - `$ git clone` the repo.
 - `$ make install` to install dependencies.
 - Configure your web server to have the public folder as the web root.
@@ -114,8 +114,6 @@ Optionally add a **before filter** to a controller like this:
 ```php
 /**
  * Before filter. Return false to stop the action from executing.
- *
- * @return void
  */
 protected function before()
 {
@@ -127,8 +125,6 @@ To stop the originally called action from executing, return `false` from the bef
 ```php
 /**
  * After filter.
- *
- * @return void
  */
 protected function after()
 {

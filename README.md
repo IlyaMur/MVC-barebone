@@ -95,7 +95,6 @@ $router->add('posts/{action}/{id:\d+}', ['controller' => 'posts']);
 
 Доступно определение неймспейса для контроллера, что может быть удобно для создания "админок":
 ```php
-// 
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 ```
 
@@ -127,12 +126,12 @@ $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 Для **before-фильтра** добавление выглядит так:
 ```php
 /**
- * Before-фильтр. Возвращает false для предовращения исполнения экшена обозначенного маршрутизатором.
- *
- * @return void
+ * Before-фильтр. При переопределении в наследнике может возвращать false.
+ * Для предовращения исполнения экшена обозначенного маршрутизатором.
  */
 protected function before()
 {
+  // ...
 }
 ```
 
@@ -141,11 +140,10 @@ protected function before()
 ```php
 /**
  * After-фильтр. Выполняется после обозначенного маршрутизатором экшена.
- *
- * @return void
  */
 protected function after()
 {
+  // ...
 }
 ```
 
