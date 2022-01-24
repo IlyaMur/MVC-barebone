@@ -22,8 +22,6 @@
     - [Models](#models)
     - [Errors](#errors)
 
-  - [How It Works](#how-it-works)
-
 ## Overview
 PHP On Rails is a simple MVC framework for building web applications in PHP.   
 The framework was written for educational purposes but has advanced routing options.
@@ -96,7 +94,6 @@ Controllers respond to user actions (clicking on a link, submitting a form etc.)
 Controllers are stored in the `src/Controllers` folder. A sample [Home controller](src/Controllers/Home.php) included. Controller classes need to be in the `Ilyamur\PhpOnRails\Controllers` namespace. You can add subdirectories to organise your controllers, so when adding a route for these controllers you need to specify the namespace (see the routing section above).
 
 #### Actions
-
 Controller classes contain methods that are the actions. To create an action, add the **`Action`** suffix to the method name. The sample controller in [src/Controllers/Home.php](src/Controllers/Home.php) has a sample `index` action.
 
 #### Route parameters
