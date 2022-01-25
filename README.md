@@ -178,8 +178,8 @@ $db = static::getDB();
 
 Ошибки преобразуются в исключения. Обработчиками обозначены:
 ```
-set_error_handler('Ilyamur\PhpMvc\Service\ErrorHandler::errorHandler');
-set_exception_handler('Ilyamur\PhpMvc\Service\ErrorHandler::exceptionHandler');
+set_error_handler('Ilyamur\PhpOnRails\Service\ErrorHandler::errorHandler');
+set_exception_handler('Ilyamur\PhpOnRails\Service\ErrorHandler::exceptionHandler');
 ```
 
 При константе `SHOW_ERRORS` (настраивается в [config.php](config/config.php)) равной `true`, в случае исключения или ошибки в браузер будет выведена полная детализация.   
