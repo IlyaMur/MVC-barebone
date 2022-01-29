@@ -6,17 +6,13 @@
 {% block body %}
 
 	<h1>Welcome</h1>
-	<p>Hello from Twig,
-		{{ name }}</p>
+	<p>Hello from Twig!</p>
 
-	{% for alert in alerts %}
-		{{ alert }}
-
-	{% endfor %}
+	<h3>Our users:</h3>
 	<ul>
-		{% for color in colors %}
-			<li>{{ color }}</li>
+		{% for user in users %}
+			<li>{{user.id}}.
+				{{user.name}}</li>
 		{% endfor %}
 	</ul>
-
 {% endblock %}

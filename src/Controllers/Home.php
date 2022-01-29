@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Ilyamur\PhpOnRails\Controllers;
 
+use Ilyamur\PhpOnRails\Models\User;
 use Ilyamur\PhpOnRails\Views\BaseView;
+use Ilyamur\PhpOnRails\Controllers\BaseController;
 
 /**
  * Home controller
@@ -21,9 +23,9 @@ class Home extends BaseController
      */
     public function indexAction(): void
     {
+        $users = User::getAll();
         BaseView::renderTemplate('Home/index', [
-            'name' => 'John Doe',
-            'colors' => ['red', 'green', 'blue'],
+            'users' => $users
         ]);
     }
 }

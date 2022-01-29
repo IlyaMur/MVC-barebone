@@ -2,17 +2,22 @@
 
 declare(strict_types=1);
 
+use Dotenv\Dotenv;
+
 /**
  * Application configuration
  *
  * PHP version 8.0
  */
 
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+
 // DB credentials
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'mvc');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
+define('DB_USER', $_ENV['MYSQL_USER']);
+define('DB_PASSWORD',  $_ENV['MYSQL_PASSWORD']);
+define('DB_HOST', $_ENV['MYSQL_HOST']);
+define('DB_NAME',  $_ENV['MYSQL_DATABASE']);
 
 // Show or hide error messages on screen
 define('SHOW_ERRORS', true);
