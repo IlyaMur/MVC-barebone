@@ -13,6 +13,7 @@
     - [Docker build](#docker-build)
     - [Local installation](#local-installation)
     - [Configuration](#configuration)
+    - [Used libraries](#used-libraries)
   - [How To Use](#how-to-use)
     - [Configuration](#configuration)
     - [Routing system](#routing)
