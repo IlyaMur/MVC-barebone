@@ -10,7 +10,9 @@
 **Table of contents**
   - [Overview](#overview)
   - [Install](#install)
-    - [Used libraries](#used-libraries)
+    - [Docker build](#docker-build)
+    - [Local installation](#local-installation)
+    - [Configuration](#configuration)
   - [How To Use](#how-to-use)
     - [Configuration](#configuration)
     - [Routing system](#routing)
@@ -34,27 +36,63 @@ The blog application with rich functionality was written in PHP On Rails - [myPo
 
 ## Install
 
-- PHP version >= 8.0 (framework is using named arguments and other modern PHP features).
-- `$ git clone` the repo.
-- `$ make install` to install dependencies.
-- Configure your web server to have the public folder as the web root.
-- Open config/config.php and enter your database configuration data.
+First of all, you need to clone the repository  
+
+    $ git clone https://github.com/IlyaMur/php_on_rails_mvc.git  
+    $ cd php_on_rails_mvc
+
+And prepare `.env` file  
+
+    $ make env-prepare
+
+### Docker build
+
+Optionally, change the connection parameters in the `.env` file.
+
+```dotenv
+MYSQL_USER='user'
+MYSQL_HOST='mariadb'
+APACHE_DEFAULT_PORT='80'
+MYSQL_PASSWORD='testpassword'
+```
+
+Build and run the application
+
+    $ make docker-start # build the project and upload the db dump to it  
+    $ make docker-stop  # stop and remove containers  
+    $ make docker-bash  # bash session in docker container
+    $ make docker-test  # run tests in docker container
+
+By default the app will be available at `http://localhost`
+
+### Local installation
+
+`PHP >= 8.0`
+
+To install dependencies:  
+
+    $ make install
+
+
+Configure your web server to have the `public/` folder as the web root.
+
+Import SQL from the `database/mytasks.sql` file into the selected DBMS 
 
 Pretty URLs are enabled using web server rewrite rules. An [.htaccess](public/.htaccess) file is included in the `public` folder.
-
-### Used libraries
-
-I tried to avoid using existing libraries and do everything myself.  
-PHP On Rails has only one dependency:
--  Twig Template Engine.
-
-## How To Use
 
 ### Configuration
 
 Configuration settings are stored in the `config/config.php` file.  
 Default settings include database connection data, error loggin and a setting to show or hide error detail.  
 You can access the settings in your code by using constants defined in the configuration file.
+
+### Used libraries
+
+I tried to avoid using existing libraries and do everything myself.  
+-  Twig Template Engine.
+-  vlucas/phpdotenv.
+
+## How To Use
 
 ### Routing System
 
